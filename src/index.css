@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 220 10% 70%;
+    --primary-foreground: 220 15% 10%;
+
+    --secondary: 220 20% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 220 10% 65%;
+    --accent-foreground: 220 15% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 220 10% 70%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --asphalt: 220 15% 15%;
+    --asphalt-light: 220 10% 25%;
+    --stripe-grey: 220 10% 70%;
+    --stripe-grey-hover: 220 10% 60%;
+    --teal: 178 65% 42%;
+    --teal-hover: 178 65% 36%;
+    --safety-orange: 30 100% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 12%) 0%, hsl(220 15% 20%) 100%);
+    --gradient-grey: linear-gradient(135deg, hsl(220 10% 70%) 0%, hsl(220 10% 55%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(178 65% 42%) 0%, hsl(178 65% 32%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsla(220, 15%, 10%, 0.9) 0%, hsla(220, 15%, 10%, 0.7) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsla(220, 15%, 10%, 0.1);
+    --shadow-elevated: 0 20px 40px -12px hsla(220, 15%, 10%, 0.2);
+    --shadow-grey: 0 8px 30px -8px hsla(220, 10%, 50%, 0.35);
+    --shadow-teal: 0 8px 30px -8px hsla(178, 65%, 42%, 0.35);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 15% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 15% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 220 10% 70%;
+    --primary-foreground: 220 15% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 10% 65%;
+    --accent-foreground: 220 15% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 220 10% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-grey);
+  }
+
+  .text-gradient-teal {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-teal);
+  }
+
+  .text-teal {
+    color: hsl(var(--teal));
+  }
+
+  .bg-asphalt {
+    background-color: hsl(var(--asphalt));
+  }
+
+  .bg-stripe-grey {
+    background-color: hsl(var(--stripe-grey));
+  }
+
+  .bg-teal {
+    background-color: hsl(var(--teal));
+  }
+
+  .shadow-grey {
+    box-shadow: var(--shadow-grey);
+  }
+
+  .shadow-teal {
+    box-shadow: var(--shadow-teal);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .animate-stripe {
+    animation: stripe-move 20s linear infinite;
+  }
+
+  @keyframes stripe-move {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 0%; }
+  }
+
+  .stripe-pattern {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      hsl(220 10% 70% / 0.1) 40px,
+      hsl(220 10% 70% / 0.1) 80px
+    );
+    background-size: 160px 100%;
+  }
+}
